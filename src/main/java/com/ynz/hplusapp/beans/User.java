@@ -4,6 +4,10 @@ package com.ynz.hplusapp.beans;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -11,10 +15,18 @@ public class User {
     @GeneratedValue
     private int id;
 
+    @Size(min = 6, message = "Username cannot be less than 6 characters")
     private String userName;
+
+    @Pattern(regexp = "", message = "Password must have one upper case, one lower case and should" +
+            "between 6 and 10 characters")
     private String password;
     private String gender;
+
+    @NotNull(message = "Activity cannot be left empty.")
     private String activity;
+
+    @NotEmpty(message = "First name cannot be empty.")
     private String firstName;
     private String lastName;
     private String dateOfBirth;
