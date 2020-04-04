@@ -8,6 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -28,13 +29,13 @@ public class User {
     @NotEmpty(message = "{firstName.cannot.empty}")
     private String firstName;
     private String lastName;
-    private String dateOfBirth;
 
+    private Date dateOfBirth;
 
     public User() {
     }
 
-    public User(String userName, String password, String gender, String activity, String firstName, String lastName, String dateOfBirth) {
+    public User(String userName, String password, String gender, String activity, String firstName, String lastName, Date dateOfBirth) {
         this.userName = userName;
         this.password = password;
         this.gender = gender;
@@ -100,11 +101,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 }
