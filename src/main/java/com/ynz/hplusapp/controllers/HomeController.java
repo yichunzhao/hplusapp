@@ -1,5 +1,6 @@
 package com.ynz.hplusapp.controllers;
 
+import com.ynz.hplusapp.beans.Login;
 import com.ynz.hplusapp.beans.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,6 +50,11 @@ public class HomeController {
     @ModelAttribute("genderItems")
     public List<String> getGenderItems() {
         return Arrays.asList("Female", "Male", "Others");
+    }
+
+    @ModelAttribute("login")
+    public Login getLogIn() {
+        return new Login();
     }
 
 }

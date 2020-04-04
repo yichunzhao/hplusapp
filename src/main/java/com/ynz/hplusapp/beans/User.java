@@ -1,9 +1,7 @@
 package com.ynz.hplusapp.beans;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -19,9 +17,11 @@ public class User {
     @Size(min = 6, message = "{userName.not.empty}")
     private String userName;
 
-    @Pattern(regexp = "", message = "{password.invalid}")
+    @Pattern(regexp = "((?=.*[A-Z]).{6,10})", message = "{password.invalid}")
     private String password;
-    private String gender;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @NotNull(message = "{activity.must.have}")
     private String activity;
@@ -35,7 +35,7 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String password, String gender, String activity, String firstName, String lastName, Date dateOfBirth) {
+    public User(String userName, String password, Gender gender, String activity, String firstName, String lastName, Date dateOfBirth) {
         this.userName = userName;
         this.password = password;
         this.gender = gender;
@@ -69,11 +69,11 @@ public class User {
         this.password = password;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
