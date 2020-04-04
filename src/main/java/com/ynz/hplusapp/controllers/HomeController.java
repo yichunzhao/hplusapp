@@ -35,14 +35,20 @@ public class HomeController {
         return "register";
     }
 
+    /**
+     * In general, Spring-MVC will always make a call first to that method, before it calls any request handler methods.
+     * That is, @ModelAttribute methods are invoked before the controller methods annotated with @RequestMapping are
+     * invoked. The logic behind the sequence is that, the model object has to be created before any processing starts
+     * inside the controller methods.
+     */
     @ModelAttribute("newUser")
-    public User getDefaultUser(){
+    public User getDefaultUser() {
         return new User();
     }
 
     @ModelAttribute("genderItems")
-    public List<String> getGenderItems(){
-        return Arrays.asList("Female", "Male","Others");
+    public List<String> getGenderItems() {
+        return Arrays.asList("Female", "Male", "Others");
     }
 
 }

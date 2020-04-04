@@ -15,18 +15,17 @@ public class User {
     @GeneratedValue
     private int id;
 
-    @Size(min = 6, message = "Username cannot be less than 6 characters")
+    @Size(min = 6, message = "{userName.not.empty}")
     private String userName;
 
-    @Pattern(regexp = "", message = "Password must have one upper case, one lower case and should" +
-            "between 6 and 10 characters")
+    @Pattern(regexp = "", message = "{password.invalid}")
     private String password;
     private String gender;
 
-    @NotNull(message = "Activity cannot be left empty.")
+    @NotNull(message = "{activity.must.have}")
     private String activity;
 
-    @NotEmpty(message = "First name cannot be empty.")
+    @NotEmpty(message = "{firstName.cannot.empty}")
     private String firstName;
     private String lastName;
     private String dateOfBirth;

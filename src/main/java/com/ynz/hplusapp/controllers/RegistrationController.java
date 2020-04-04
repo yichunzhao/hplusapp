@@ -19,8 +19,11 @@ public class RegistrationController {
 
     @PostMapping("/registerUser")
     public String resisterUser(@Valid @ModelAttribute("newUser") User user, BindingResult result, Model model) {
+        //@ModelAttribute defines data binding, mapping form inputs to java data model.
+        //Model defines Model mapping, from java data model to view fields.
         System.out.println("in registration controller");
 
+        //if mapping having error.
         if(result.hasErrors()){
             return "register";
         }
