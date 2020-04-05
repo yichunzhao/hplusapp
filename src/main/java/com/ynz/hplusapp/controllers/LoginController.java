@@ -11,11 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("login")//in class level saving the login data model into the session
 public class LoginController {
     @Autowired
     private UserRepository userRepository;
+
+    //@ModelAndAttribute Login login bean has been declared in the ControllerAdvice class, DefaultModelAttributeController.
 
     @PostMapping("/login")
     public String login(@ModelAttribute("login") Login login, Model model) {
@@ -24,7 +28,7 @@ public class LoginController {
 
         if (user == null) throw new ApplicationException("User is not found.");
 
-        return "search";
+        return "forward:/userProfile";
     }
 
     /**
