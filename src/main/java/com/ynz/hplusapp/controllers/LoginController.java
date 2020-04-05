@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @SessionAttributes("login")//in class level saving the login data model into the session
 public class LoginController {
@@ -22,11 +24,13 @@ public class LoginController {
     //@ModelAndAttribute Login login bean has been declared in the ControllerAdvice class, DefaultModelAttributeController.
 
     @PostMapping("/login")
-    public String login(@ModelAttribute("login") Login login, Model model) {
+    public String login(@ModelAttribute("login") Login login, Model model, HttpSession session) {
 
         User user = userRepository.findByUserName(login.getUserName());
 
         if (user == null) throw new ApplicationException("User is not found.");
+
+        session.setMaxInactiveInterval(600);
 
         return "forward:/userProfile";
     }
