@@ -30,6 +30,7 @@ public class User {
     private String firstName;
     private String lastName;
 
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     public User() {
