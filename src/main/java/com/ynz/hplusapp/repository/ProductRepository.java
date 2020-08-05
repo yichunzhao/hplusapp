@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Integer> {
 
-    public List<Product> findByName(String name);
+    List<Product> findByNameContaining(String name);
 }

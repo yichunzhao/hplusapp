@@ -26,12 +26,12 @@ public class ProductRestController {
 
     @GetMapping("/hplus/rest/products")
     public ResponseEntity getProductsByRequestParameter(@RequestParam("name") String name) {
-        return new ResponseEntity<>(productRepository.findByName(name), HttpStatus.OK);
+        return new ResponseEntity<>(productRepository.findByNameContaining(name), HttpStatus.OK);
     }
 
     @GetMapping("/hplus/rest/products/{name}")
     public ResponseEntity getProductsByPathVariable(@PathVariable("name") String name) {
-        return new ResponseEntity<>(productRepository.findByName(name), HttpStatus.OK);
+        return new ResponseEntity<>(productRepository.findByNameContaining(name), HttpStatus.OK);
     }
 
 

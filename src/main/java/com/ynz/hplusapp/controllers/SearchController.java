@@ -60,12 +60,12 @@ public class SearchController {
 
             //simulating a delay due to a blocking task.
             try {
-                Thread.sleep(9000);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             System.out.println("Thread from Spring mvc task executor: " + Thread.currentThread().getName());
-            List<Product> products = productRepository.findByName(search);
+            List<Product> products = productRepository.findByNameContaining(search);
             model.addAttribute("products", products);
 
             deferredResult.setResult("search");
