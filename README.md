@@ -35,4 +35,9 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
 
 ```
 
+A interceptor can be applied on specific uri patterns
+
+```
+registry.addInterceptor(loginInterceptor()).addPathPatterns();
+```
 
