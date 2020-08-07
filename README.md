@@ -14,7 +14,7 @@ A interceptor offers three customer entry points
 * postHanle(): performing operations before sending the reponse to the servlet dispatcher. 
 * afterCompletion(): performing operations after completing the request and response. 
 
-A custom interceptor implements `HandlerInterceptorAdapter`
+A customer interceptor implements `HandlerInterceptorAdapter`
 
 ```
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
@@ -22,7 +22,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 }
 ```
 
-Informing Spring the coustom interceptor
+Informing Spring the coustomer interceptor
 
 ```
 @Configuration
