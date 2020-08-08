@@ -108,7 +108,7 @@ The model is remained in the session until another controller method uses a `@Se
 
 `session.invalidate()`
 
-*fowarding* 
+*forwarding* 
 
 Switching from one resource to another in the same context. The same context means the same client http request.  
 
