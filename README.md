@@ -117,8 +117,41 @@ Switching from one resource to another in the same context. The same context mea
 
 *redirecting*
 
-Switching out the current application, and link to another website.
+Switching outside of the current application, and link to another website.
 
 `return "redirect:http://www.xyz.com";`
 
+*themes*
+
+Static resources like css and images; used to present the view in many kind of looking and feel. 
+
+* define separate static resources for different themes
+* define respective theme property files, pointing to the static resources
+* Use one of ThemeResolver to decide which theme to use: 
+  * CookieThemeResolver
+  * SessionThemeResolver
+  * FixedThemeResolver
+  
+  Declaring a bean of theme resolver, and add ThemeChangeInterceptor, which monitoring the theme changes. 
+  
+  ````
+      @Bean
+    protected ThemeResolver themeResolver(){
+        CookieThemeResolver cookieThemeResolver = new CookieThemeResolver();
+        cookieThemeResolver.setCookieName("theme");
+        cookieThemeResolver.setDefaultThemeName("client-theme1");
+        return cookieThemeResolver;
+    }
+ 
+  ````
+ 
+ * cofigure ThemeChangeInterceptor to tap a change in theme value for every request
+ * User <spring:theme/> to refer themed keys from .properties file on the jsp. 
+ 
+ On the index page
+ 
+ `<link rel="stylesheet" href="<spring:theme code='styleSheet'/>" type="text/css"/>`
+ 
+ The code refer to key value defined in the theme property file. 
+ 
 
