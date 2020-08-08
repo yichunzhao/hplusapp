@@ -8,7 +8,7 @@ Interceptors provide Http requests pre-prosessing and post-processing.
 ![image](https://user-images.githubusercontent.com/17804600/89495725-294c2880-d7b9-11ea-925f-b9170e25165a.png)
 
 
-A interceptor offers three customer entry points
+An interceptor offers three customers entry points
 
 * preHandle(): perfoming operations before the request arriving at the controller. 
 * postHanle(): performing operations before sending the reponse to the servlet dispatcher. 
@@ -35,7 +35,7 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
 
 ```
 
-A interceptor can be applied on specific uri patterns
+An interceptor can be applied on specific uri patterns
 
 ```
 registry.addInterceptor(loginInterceptor()).addPathPatterns();
