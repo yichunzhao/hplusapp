@@ -104,11 +104,16 @@ The model is remained in the session until another controller method uses a `@Se
 }
 ````
 
+*logout*
+
+`session.invalidate()`
+
 *fowarding* 
 
 Switching from one resource to another in the same context. `The same context means the same client http request.  
 
 `return "forward:/userProfile";`
+
 
 *redirecting*
 
