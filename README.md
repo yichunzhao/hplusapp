@@ -110,14 +110,14 @@ The model is remained in the session until another controller method uses a `@Se
 
 *fowarding* 
 
-Switching from one resource to another in the same context. `The same context means the same client http request.  
+Switching from one resource to another in the same context. The same context means the same client http request.  
 
 `return "forward:/userProfile";`
 
 
 *redirecting*
 
-Switching outside the current application, and link to another websiet.
+Switching out the current application, and link to another website.
 
 `return "redirect:http://www.xyz.com";`
 
