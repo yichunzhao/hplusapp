@@ -12,7 +12,7 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @GetMapping("/home")
+    @GetMapping(path = {"/home","/"})
     public String getHome() {
         System.out.println("in home controller");
         return "index";
