@@ -41,7 +41,7 @@ An interceptor can be applied on specific uri patterns
 registry.addInterceptor(loginInterceptor()).addPathPatterns();
 ```
 
-*Save and get model via session
+*Save and get model via session*
 
 A request operation may need to switch from one controller to another, meanwhile it need to carry states to the next.
 
