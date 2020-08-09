@@ -114,12 +114,20 @@ Switching from one resource to another in the same context. The same context mea
 
 `return "forward:/userProfile";`
 
+Forwarding brings the same request from from one request handler to another request handler.
+
+From method handler(post method) to method handler(post method) is ok; if you do post to get then Spriing throw Request method not support exception. 
+
+I think it should be like forwarding from a post to post; and from a get to a get. 
 
 *redirecting*
 
 Switching outside of the current application, and link to another website.
 
 `return "redirect:http://www.xyz.com";`
+
+Redirecting is different from Forward; the first resquest doesn't return the response to the client, but going further. The response will be redirected to the next url
+and get its reposnse.
 
 *themes*
 
