@@ -162,4 +162,17 @@ Static resources like css and images; used to present the view in many kind of l
  
  The code refer to key value defined in the theme property file. 
  
+ 
+ *@SessionAttributes Session Attributes*
+ 
+ When a request swiths from one to another, it may need to bring a Model to the next one for a futher processing.  `@SessionAttributes` is applied on the `@Controller`class level, to inform Spring to store a `@ModelAttribute` in the Session.
+ 
+ *@SessionAttribute*
+ 
+ It is used at the another request handler's agrument, in order to access the Model Attribute stored the session. 
+ 
+ *@SessionStatus*
+ 
+ `@SessionStatus` is applied in a request handler method's argument. A ModelAttribute is stored until `@SessionStatus` is set to complete, 
+ 
 
