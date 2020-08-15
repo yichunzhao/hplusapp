@@ -178,6 +178,22 @@ Static resources like css and images; used to present the view in many kind of l
  
  *SessionStatus*
  
- `SessionStatus` is an interface, which can be injected as a request handler method argument. A ModelAttribute is stored until `@SessionStatus` is set to complete. Meaning that, 
- it informs that the session processing is done, following up a clearing activities. I think it is more like invalidating a session. 
+ `SessionStatus` is an interface, which is injected when it is taken as a request handler method argument. A ModelAttribute is stored until `@SessionStatus` is set to complete. Meaning that, it signals that the session processing is done, following up a clearing activities. I think it is more like invalidating a session, but it is not exaclty same.
+ 
+ Ref. to its java documentation, as the following 
+  
+>void setComplete()
+>Mark the current handler's session processing as complete, allowing for cleanup of session attributes.
+
+_marking the current session processing is completed._ , it is not about entire session. 
+
+>The handler invoker may then follow up with appropriate cleanup, e.g. of session attributes which have been implicitly created during this handler's processing (according to >the @SessionAttributes annotation).
+
+clearing up is only current session attributes related to the current request handler. 
+
+Session invalidation is about to destroy the entire session including all session attributes accross several requests. 
+
+
+
+
 
