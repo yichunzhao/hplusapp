@@ -166,14 +166,18 @@ Static resources like css and images; used to present the view in many kind of l
  
  *@SessionAttributes*
  
- When a request swiths from one to another, it may need to bring a Model to the next one for a futher processing.  `@SessionAttributes` is applied on the `@Controller`class level, to inform Spring to store a `@ModelAttribute` in the Session.
+ When a request swiths from one to another, it may need to bring a ModelAttribute to the next one for a futher processing.  `@SessionAttributes` is applied on a `@Controller`class, to inform Spring to store a `@ModelAttribute` in the Session, thus the next request may access it. 
+ 
+ `@SessionAttributes({"mA-name-1","mA-name-2"})` It may store more than one ModelAttribute 
  
  *@SessionAttribute*
  
- It is used at the another request handler's agrument, in order to access the Model Attribute stored the session. 
+ The next request may access this ModelAttribute from its handler's agrument, in order to access the ModelAttribute stored the session. `@SessionAttribute` is therefore applied in a only handler argument parameter.
  
- *@SessionStatus*
+ `@SessionAttribute("ma-nae-1")` may refer to a ModelAttribute by its key value.
  
- `@SessionStatus` is applied in a request handler method's argument. A ModelAttribute is stored until `@SessionStatus` is set to complete, 
+ *SessionStatus*
  
+ `SessionStatus` is an interface, which can be injected as a request handler method argument. A ModelAttribute is stored until `@SessionStatus` is set to complete. Meaning that, 
+ it informs that the session processing is done, following up a clearing activities. I think it is more like invalidating a session. 
 
